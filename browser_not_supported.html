@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>April Fools 2020</title>
+    <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet">
+    <style>
+    
+    div{margin-bottom: 10px;font-size:16px;}
+    #browserList li{
+      list-style: none;
+      margin: 5px;
+    }
+    #browserList li a{
+      text-decoration: none;
+      color:cornflowerblue;
+      font-size: 18px;
+    }
+    #browserList li a:hover{
+      text-decoration: underline;
+    }
+    #browserList li a span.mdi{
+      color: #333;
+    }
+    #browserList li a span.mdi:hover{
+      text-decoration: none;
+    }
+    .disclaimer{
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    </style>
+    <script>
+      Array.prototype.shuffle = function() {
+        var currentIndex = this.length;
+        var temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+          temporaryValue = this[currentIndex];
+          this[currentIndex] = this[randomIndex];
+          this[randomIndex] = temporaryValue;
+        }
+      };
+
+      var browserChoices = [
+        {"text":"Mozilla Firefox", "href":"https://www.firefox.com", "icon":"mdi-firefox"},
+        {"text":"Google Chrome", "href":"https://www.google.com/chrome/", "icon":"mdi-google-chrome"},
+        {"text":"Microsoft Edge", "href":"https://www.microsoft.com/en-us/edge", "icon":"mdi-edge"},
+      ];
+      
+      document.addEventListener("DOMContentLoaded", function(e){
+        browserChoices.shuffle();
+        var choiceList = "";
+        for (var i = 0; i < browserChoices.length; i++)
+          choiceList += "<li><a target=\"_blank\" href=\"" + browserChoices[i].href + "\"><span class=\"mdi " + browserChoices[i].icon +  "\"></span><span class=\"no-underline-on-hover\">" + browserChoices[i].text + "</span></a></li>";
+        document.querySelector("#browserList").innerHTML = choiceList;
+      })
+      
+      </script>
+  </head>
+  <body>
+    <h1>Thanks for taking interest in using AprilFools2020!</h1>
+    <div>Unfortunately due to the nature of how it is programmed, your broswer won't be able to support running the app.</div>
+    <div>
+      Consider trying one of the following browsers:<br>
+      <ul id="browserList"></ul>
+      <span class="disclaimer">* Support is not strictly limited to browsers listed above, your browser's mileage may vary.</span>
+  </body>
+</html>
