@@ -1,0 +1,19 @@
+body{
+  background: #fefefe;
+}
+#app-main-container{
+  position: absolute;
+  top: 5%;
+  left: 25%;
+}
+.app-brand-text{
+  font-size: 1.65rem;
+  user-select: none;
+}
+#chat-messages-container{
+  height: 67.5vh;
+  overflow-y: scroll;
+}
+#actions-bar-container{
+  height: 7.5vh
+}
