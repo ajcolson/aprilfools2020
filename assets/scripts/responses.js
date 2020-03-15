@@ -68,19 +68,17 @@ const MagicResponses = {
   GetRandomResponseData(){
     let thresholdRoll = Helpers.GetRandomIntInclusive(Helpers.Constants.MIN_RAND_ROLL_VAL,Helpers.Constants.MAX_RAND_ROLL_VAL/2) + Helpers.GetRandomIntInclusive(Helpers.Constants.MIN_RAND_ROLL_VAL,Helpers.Constants.MAX_RAND_ROLL_VAL/2)
     var rounds = 0
-    while (1) {
+    while ( rounds <= 99 ) {
       rounds++
-      let indexRoll = Helpers.GetRandomInt(0,Responses.ResponsesList.length)
-      let posssibleResponse = Responses.ResponsesList[indexRoll]
+      let indexRoll = Helpers.GetRandomInt(0,MagicResponses.ResponsesList.length)
+      let posssibleResponse = MagicResponses.ResponsesList[indexRoll]
       if ( thresholdRoll >= posssibleResponse.threshold ) {
         return {
           "text" : posssibleResponse.text,
           "rounds": rounds
         }
       }
-      if (rounds > 99) {
-        return {"text":"Hi there, Alex here. Somehow the code that picks a random phrase was unable to find a phrase despite many attempts to do so. You shouldn't normally see this message, so congrats on getting this far! It is very unlikely you'll ever see this message again.","rounds":rounds}
-      }
-    } 
+    }
+    return {"text":"Hi there, Alex here. Somehow the code that picks a random phrase was unable to find a phrase despite many attempts to do so. You shouldn't normally see this message, so congrats on getting this far! It is very unlikely you'll ever see this message again.","rounds":100} 
   }
 }

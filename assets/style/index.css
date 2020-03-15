@@ -2,18 +2,46 @@ body{
   background: #fefefe;
 }
 #app-main-container{
-  position: absolute;
-  top: 5%;
-  left: 25%;
+  min-width: 450px;
+  min-height: 750px;
+  max-width: 450px;
+  max-height: 750px;
+  overflow: hidden;
 }
 .app-brand-text{
   font-size: 1.65rem;
   user-select: none;
 }
 #chat-messages-container{
-  height: 67.5vh;
+  height: 605px;
   overflow-y: scroll;
 }
 #actions-bar-container{
   height: 7.5vh
+}
+#options-dropdown{
+  left:-115px;
+}
+
+.no-select{
+  user-select: none !important;
+}
+
+.chat-bubble{
+  display: block;
+}
+
+.user-chat-bubble{
+
+}
+
+.user-chat-bubbe .chat-bubble-message .card{
+  float: right;
+}
+
+.chat-bubble-avatar h4{
+  display: inline-block;
+}
+.chat-bubble-message{
+  max-width: 15rem;
 }

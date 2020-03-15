@@ -18,41 +18,81 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="./assets/scripts/three.js"></script>
     <script src="./assets/scripts/helpers.js"></script>
     <script src="./assets/scripts/responses.js"></script>
     <script src="./assets/scripts/index.js"></script>
   </head>
   <body>
-    <div id="app-main-container" class="shadow w-50 m-2 bg-light rounded">
-      <nav class="mt-1 pb-1 navbar navbar-dark bg-primary">
+    <div id="app-main-container" class="shadow my-4 mx-5 bg-light rounded">
+      <nav class="mt-1 pb-2 navbar navbar-dark bg-primary no-select">
         <div class="mr-auto">
           <span class="navbar-brand app-brand-text">
             <span class="mdi mdi-24px mdi-black-mesa"></span>&nbsp;IT Support Chat Bot
           </span>
         </div>
-        <div class="options-dropdown">
-          <button type="button" id="app-options-btn" class="btn btn-link" data-toggle="options-dropdown" aria-haspopup="true" aria-expanded="false">
+        <div id="options-dropdown-container" class="dropdown no-select">
+          <button type="button" id="app-options-btn" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="text-white mdi mdi-24px mdi-dots-vertical"></span>
           </button>
-          <div class="dropdown-menu" aria-labelledby="app-options-btn">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+          <div id="options-dropdown" class="dropdown-menu no-select" aria-labelledby="app-options-btn">
+            <h6 class="dropdown-header no-select">Actions</h6>
+            <a id="options-reset-link" class="dropdown-item" href="#"><span class="mdi mdi-reload"></span>&nbsp;Reset</a>
+            <a id="options-settings-link" class="dropdown-item" href="#"><span class="mdi mdi-settings"></span>&nbsp;Settings</a>
+            <div class="dropdown-divider"></div>
+            <a id="options-about-link" class="dropdown-item" href="#"><span class="mdi mdi-information-outline"></span>&nbsp;About</a>
+            <div class="dropdown-divider"></div>
+            <a id="options-close-link" class="dropdown-item" href="#"><span class="mdi mdi-close"></span>&nbsp;Close</a>
+          </div>
+        </div>
+      </nav>
+      <div id="chat-messages-container" class="p-3 bg-white">
+        <div class="chat-bubble">
+          <div class="chat-bubble-avatar mb-1">
+            <span class="badge badge-pill badge-secondary p-2">
+              <span class="mdi mdi-24px mdi-light mdi-robot"></span>
+            </span>
+            <h4>Bot</h4>
+          </div>
+          <div class="chat-bubble-message">
+            <div class="card bg-light mb-3">
+              <div class="card-body">
+                <p class="card-text">Hello, I'm the IT Support Chat Bot! How can I be of assistance today?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-bubble user-chat-bubble">
+          <div class="chat-bubble-avatar mb-1">
+            <span class="badge badge-pill badge-secondary p-2">
+              <span class="mdi mdi-24px mdi-light mdi-account"></span>
+            </span>
+            <h4>User</h4>
+          </div>
+          <div class="chat-bubble-message">
+            <div class="card bg-light mb-3">
+              <div class="card-body">
+                <p class="card-text">Lorem Ipsum</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-bubble">
+          <div class="chat-bubble-avatar mb-1">
+            <span class="badge badge-pill badge-secondary p-2">
+              <span class="mdi mdi-24px mdi-google-downasaur"></span>
+            </span>
+            <h4>Dino</h4>
+          </div>
+          <div class="chat-bubble-message">
+            <div class="card bg-dark text-white mb-3">
+              <div class="card-body">
+                <p class="card-text">RAWR!</p>
+              </div>
+            </div>
           </div>
         </div>
         
-      </nav>
-      
-      <div id="chat-messages-container" class="p-3 bg-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis feugiat vivamus at augue eget arcu. Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Quis auctor elit sed vulputate mi sit. Tortor posuere ac ut consequat semper viverra nam libero justo. Condimentum lacinia quis vel eros. Interdum varius sit amet mattis vulputate enim. Donec ultrices tincidunt arcu non sodales neque. Nisl nunc mi ipsum faucibus vitae. Rhoncus mattis rhoncus urna neque viverra. Egestas sed tempus urna et pharetra pharetra massa massa. Ac felis donec et odio pellentesque diam volutpat commodo. Massa massa ultricies mi quis. Nec feugiat in fermentum posuere.
-
-        Habitant morbi tristique senectus et netus et. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Blandit massa enim nec dui nunc mattis enim. Mauris augue neque gravida in fermentum et. Pellentesque elit eget gravida cum sociis natoque penatibus. Sagittis purus sit amet volutpat consequat mauris nunc congue. Imperdiet massa tincidunt nunc pulvinar sapien et ligula. Proin nibh nisl condimentum id venenatis. Ligula ullamcorper malesuada proin libero. Senectus et netus et malesuada fames ac turpis egestas sed. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed pulvinar proin gravida hendrerit. Eget felis eget nunc lobortis mattis aliquam faucibus purus in. Quis blandit turpis cursus in hac. Nisl tincidunt eget nullam non. Et egestas quis ipsum suspendisse ultrices. Blandit volutpat maecenas volutpat blandit aliquam etiam erat.
-        
-        Laoreet sit amet cursus sit amet dictum sit. Nisl suscipit adipiscing bibendum est ultricies. Nunc faucibus a pellentesque sit. Suscipit adipiscing bibendum est ultricies integer. Enim nulla aliquet porttitor lacus luctus accumsan. Venenatis lectus magna fringilla urna porttitor. Accumsan tortor posuere ac ut. Purus in massa tempor nec feugiat nisl. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna. Nullam non nisi est sit. Neque sodales ut etiam sit. Vitae justo eget magna fermentum. Lectus nulla at volutpat diam ut. Massa tincidunt nunc pulvinar sapien et ligula. Pretium fusce id velit ut tortor pretium viverra suspendisse potenti. Non enim praesent elementum facilisis leo vel. Sit amet est placerat in. Morbi leo urna molestie at. Duis at tellus at urna condimentum.
-        
-        Risus pretium quam vulputate dignissim. Eget nunc lobortis mattis aliquam. Auctor elit sed vulputate mi sit amet mauris commodo. Tempor orci eu lobortis elementum. Urna id volutpat lacus laoreet. Elementum curabitur vitae nunc sed velit dignissim. Dolor sit amet consectetur adipiscing elit. Est ultricies integer quis auctor elit sed vulputate mi. Vitae purus faucibus ornare suspendisse sed nisi lacus. Sed turpis tincidunt id aliquet risus feugiat. Lacus vestibulum sed arcu non odio euismod lacinia at. Pellentesque elit ullamcorper dignissim cras. Nunc sed id semper risus in hendrerit gravida rutrum. Nisi vitae suscipit tellus mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada. Mattis pellentesque id nibh tortor id aliquet.
-        
-        At tempor commodo ullamcorper a lacus vestibulum sed. Vulputate enim nulla aliquet porttitor lacus. Sed arcu non odio euismod lacinia at quis risus. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Non sodales neque sodales ut etiam sit amet nisl. Sagittis vitae et leo duis ut diam quam nulla. In est ante in nibh mauris cursus mattis molestie a. Vivamus arcu felis bibendum ut tristique et. Viverra justo nec ultrices dui sapien eget mi. Scelerisque viverra mauris in aliquam sem fringilla. Eget nulla facilisi etiam dignissim diam.</div>
+      </div>
       <div id="actions-bar-container" class="px-3 pt-2 mb-1 bg-light">
         <div class="input-group mb-3">
           <input type="text" id="chat-send-txt" class="form-control" placeholder="Enter your text here..." aria-label="Enter your text here..." aria-describedby="chat-send-btn">
