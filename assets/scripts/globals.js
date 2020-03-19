@@ -1,7 +1,10 @@
-const Helpers = {
+const Globals = {
   Constants : {
     MIN_RAND_ROLL_VAL: 0,
     MAX_RAND_ROLL_VAL: 1000
+  },
+  Variables : {
+    Username: "User"
   },
   GetRandNumber() {
     return 4

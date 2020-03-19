@@ -1,4 +1,4 @@
-const MagicResponses = {
+const BotResponses = {
   ResponsesList : [
     {
       text: "Reboot the thing.",
@@ -10,7 +10,7 @@ const MagicResponses = {
     },
     {
       text: "Turn the thing off and on again.",
-      threshold: Helpers.Constants.MIN_RAND_ROLL_VAL
+      threshold: Globals.Constants.MIN_RAND_ROLL_VAL
     },
     {
       text: "Update the thing.",
@@ -54,7 +54,7 @@ const MagicResponses = {
     },
     {
       text: "ERROR: DOES NOT COMPUTE.",
-      threshold: Helpers.Constants.MAX_RAND_ROLL_VAL - 5
+      threshold: Globals.Constants.MAX_RAND_ROLL_VAL - 5
     },
     {
       text: "Unsure at this time, try again later.",
@@ -62,16 +62,16 @@ const MagicResponses = {
     },
     {
       text: "ALL YOUR BASE ARE BELONG TO ME.",
-      threshold: Helpers.Constants.MAX_RAND_ROLL_VAL
+      threshold: Globals.Constants.MAX_RAND_ROLL_VAL
     }
   ],
   GetRandomResponseData(){
-    let thresholdRoll = Helpers.GetRandomIntInclusive(Helpers.Constants.MIN_RAND_ROLL_VAL,Helpers.Constants.MAX_RAND_ROLL_VAL/2) + Helpers.GetRandomIntInclusive(Helpers.Constants.MIN_RAND_ROLL_VAL,Helpers.Constants.MAX_RAND_ROLL_VAL/2)
+    let thresholdRoll = Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
     var rounds = 0
     while ( rounds <= 99 ) {
       rounds++
-      let indexRoll = Helpers.GetRandomInt(0,MagicResponses.ResponsesList.length)
-      let posssibleResponse = MagicResponses.ResponsesList[indexRoll]
+      let indexRoll = Globals.GetRandomInt(0,BotResponses.ResponsesList.length)
+      let posssibleResponse = BotResponses.ResponsesList[indexRoll]
       if ( thresholdRoll >= posssibleResponse.threshold ) {
         return {
           "text" : posssibleResponse.text,

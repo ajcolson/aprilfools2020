@@ -18,8 +18,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="./assets/scripts/helpers.js"></script>
-    <script src="./assets/scripts/responses.js"></script>
+    <script src="./assets/scripts/globals.js"></script>
+    <script src="./assets/scripts/bot-responses.js"></script>
+    <script src="./assets/scripts/rex-responses.js"></script>
+    <script src="./assets/scripts/chat.js"></script>
     <script src="./assets/scripts/index.js"></script>
   </head>
   <body>
@@ -39,60 +41,13 @@
             <a id="options-reset-link" class="dropdown-item" href="#"><span class="mdi mdi-reload"></span>&nbsp;Reset</a>
             <a id="options-settings-link" class="dropdown-item" href="#"><span class="mdi mdi-settings"></span>&nbsp;Settings</a>
             <div class="dropdown-divider"></div>
-            <a id="options-about-link" class="dropdown-item" href="#"><span class="mdi mdi-information-outline"></span>&nbsp;About</a>
+            <a id="options-about-link" class="dropdown-item" href="#" data-toggle="modal" data-target="#aboutModal"><span class="mdi mdi-information-outline"></span>&nbsp;About</a>
             <div class="dropdown-divider"></div>
             <a id="options-close-link" class="dropdown-item" href="#"><span class="mdi mdi-close"></span>&nbsp;Close</a>
           </div>
         </div>
       </nav>
-      <div id="chat-messages-container" class="p-3 bg-white">
-        <div class="chat-bubble">
-          <div class="chat-bubble-avatar mb-1">
-            <span class="badge badge-pill badge-secondary p-2">
-              <span class="mdi mdi-24px mdi-light mdi-robot"></span>
-            </span>
-            <h4>Bot</h4>
-          </div>
-          <div class="chat-bubble-message">
-            <div class="card bg-light mb-3">
-              <div class="card-body">
-                <p class="card-text">Hello, I'm the IT Support Chat Bot! How can I be of assistance today?</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="chat-bubble user-chat-bubble">
-          <div class="chat-bubble-avatar mb-1">
-            <span class="badge badge-pill badge-secondary p-2">
-              <span class="mdi mdi-24px mdi-light mdi-account"></span>
-            </span>
-            <h4>User</h4>
-          </div>
-          <div class="chat-bubble-message">
-            <div class="card bg-light mb-3">
-              <div class="card-body">
-                <p class="card-text">Lorem Ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="chat-bubble">
-          <div class="chat-bubble-avatar mb-1">
-            <span class="badge badge-pill badge-secondary p-2">
-              <span class="mdi mdi-24px mdi-google-downasaur"></span>
-            </span>
-            <h4>Dino</h4>
-          </div>
-          <div class="chat-bubble-message">
-            <div class="card bg-dark text-white mb-3">
-              <div class="card-body">
-                <p class="card-text">RAWR!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
+      <div id="chat-messages-container" class="p-3 bg-white"></div>
       <div id="actions-bar-container" class="px-3 pt-2 mb-1 bg-light">
         <div class="input-group mb-3">
           <input type="text" id="chat-send-txt" class="form-control" placeholder="Enter your text here..." aria-label="Enter your text here..." aria-describedby="chat-send-btn">
@@ -102,6 +57,23 @@
         </div>
       </div>
     </div>
-    
+    <div class="modal fade" id="aboutModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

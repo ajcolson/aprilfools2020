@@ -1,5 +1,5 @@
 body{
-  background: #fefefe;
+  background: #999;
 }
 #app-main-container{
   min-width: 450px;
@@ -31,17 +31,12 @@ body{
   display: block;
 }
 
-.user-chat-bubble{
-
-}
-
-.user-chat-bubbe .chat-bubble-message .card{
-  float: right;
-}
-
 .chat-bubble-avatar h4{
   display: inline-block;
 }
-.chat-bubble-message{
-  max-width: 15rem;
+
+#aboutModal{
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
