@@ -15,9 +15,11 @@ body{
 #chat-messages-container{
   height: 605px;
   overflow-y: scroll;
+  display: none;
 }
-#actions-bar-container{
-  height: 7.5vh
+#chat-actions-bar-container{
+  height: 7.5vh;
+  display:none;
 }
 #options-dropdown{
   left:-115px;
@@ -35,8 +37,14 @@ body{
   display: inline-block;
 }
 
-#aboutModal{
-  position: fixed;
-  top: 0px;
-  left: 0px;
+#about-app-container{
+  height: 680px;
+  overflow-y: scroll;
+  display: none;
+}
+
+#app-settings-container{
+  height: 680px;
+  overflow-y: scroll;
+  display:none;
 }
