@@ -22,18 +22,41 @@ const Globals = {
   Variables : {
     Username: "User"
   },
+  MT_RAND : {
+    __seed: "Default-Seed -- This value gets changed later. :)",
+    __prng: new Math.seedrandom(Globals.MT_RAND.__seed),
+    SetSeed(newSeedValue = "Default-Seed -- This value gets changed later. :)"){
+      Globals.MT_RAND.__seed = newSeedValue
+    },
+    GenerateNewPRNG(){
+      Globals.MT_RAND.__prng = new Math.seedrandom(Globals.MT_RAND.__seed)
+    },
+    Next(){
+      return Globals.MT_RAND.__prng.Int32()
+    },
+    NextFromRange(min, max) {
+      min = Math.ceil(min)
+      max = Math.floor(max)
+      var next
+      do {
+        next = Globals.MT_RAND.Next()
+      }
+      while (next < min || next > max)
+      return next
+    },
+    NextFromRangeInclusive(min, max) {
+      min = Math.ceil(min)
+      max = Math.floor(max)
+      var next
+      do {
+        next = Globals.MT_RAND.Next()
+      }
+      while (next < min || next > max+1)
+      return next
+    },
+  },
   GetRandNumber() {
     return 4
-  },
-  GetRandomInt(min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min)) + min
-  },
-  GetRandomIntInclusive(min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min
   },
   GetUrlVars(){
     var returns = {}

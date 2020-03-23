@@ -66,11 +66,11 @@ const BotResponses = {
     }
   ],
   GetRandomResponseData(){
-    let thresholdRoll = Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
+    let thresholdRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
     var rounds = 0
     while ( rounds <= 99 ) {
       rounds++
-      let indexRoll = Globals.GetRandomInt(0,BotResponses.ResponsesList.length)
+      let indexRoll = Globals.MT_RAND.NextFromRange(0,BotResponses.ResponsesList.length)
       let posssibleResponse = BotResponses.ResponsesList[indexRoll]
       if ( thresholdRoll >= posssibleResponse.threshold ) {
         return {

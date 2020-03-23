@@ -63,5 +63,17 @@ const Chat = {
       </div>
     </div>`
     Chat.__helpers._addChatHTMLtoChatWindow(html_message)
+  },
+  ProcessUserInput(userInput = ""){
+    //Don't process blank inputs or input not of type string
+    if (userInput === "" || typeof userInput != "string"){
+      return
+    }
+
+    Globals.MT_RAND.SetSeed(userInput)
+    Globals.MT_RAND.GenerateNewPRNG()
+
+    Chat.AddUserMessageToChatWindow(userInput)
+
   }
 }
