@@ -57,16 +57,12 @@ const BotResponses = {
       threshold: Globals.Constants.MAX_RAND_ROLL_VAL - 5
     },
     {
-      text: "Unsure at this time, try again later.",
-      threshold: 500
-    },
-    {
       text: "ALL YOUR BASE ARE BELONG TO ME.",
       threshold: Globals.Constants.MAX_RAND_ROLL_VAL
     }
   ],
   GetRandomResponseData(){
-    let thresholdRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.GetRandomIntInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
+    let thresholdRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
     var rounds = 0
     while ( rounds <= 99 ) {
       rounds++

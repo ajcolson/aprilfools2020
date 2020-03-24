@@ -24,7 +24,7 @@ const Globals = {
   },
   MT_RAND : {
     __seed: "Default-Seed -- This value gets changed later. :)",
-    __prng: new Math.seedrandom(Globals.MT_RAND.__seed),
+    __prng: null,
     SetSeed(newSeedValue = "Default-Seed -- This value gets changed later. :)"){
       Globals.MT_RAND.__seed = newSeedValue
     },
@@ -32,30 +32,41 @@ const Globals = {
       Globals.MT_RAND.__prng = new Math.seedrandom(Globals.MT_RAND.__seed)
     },
     Next(){
-      return Globals.MT_RAND.__prng.Int32()
+      if(Globals.MT_RAND.__prng == null)
+        Globals.MT_RAND.GenerateNewPRNG()
+        //only return unsigned values
+        return Math.abs(Globals.MT_RAND.__prng.int32())
     },
-    NextFromRange(min, max) {
+    NextFromRange(min, max){
       min = Math.ceil(min)
       max = Math.floor(max)
-      var next
-      do {
-        next = Globals.MT_RAND.Next()
+      var next = Globals.MT_RAND.Next()
+      while (next < min || next > (max-1)) {
+        if (next == 0){
+          if (min != 0)
+            next = max-1
+          break
+        }
+        else next = next % (max-1)
       }
-      while (next < min || next > max)
       return next
     },
-    NextFromRangeInclusive(min, max) {
+    NextFromRangeInclusive(min, max){
       min = Math.ceil(min)
       max = Math.floor(max)
-      var next
-      do {
-        next = Globals.MT_RAND.Next()
+      var next = Globals.MT_RAND.Next()
+      while (next < min || next > max) {
+        if (next == 0){
+          if (min != 0)
+            next = max
+          break
+        }
+        else next = next % max
       }
-      while (next < min || next > max+1)
       return next
-    },
+    }
   },
-  GetRandNumber() {
+  GetRandNumber(){
     return 4
   },
   GetUrlVars(){
@@ -86,5 +97,8 @@ const Globals = {
         }
       }
     } 
+  },
+  GetUnixTime(){
+    return Math.floor(Date.now() / 1000)
   }
 }

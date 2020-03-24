@@ -22,9 +22,16 @@ document.addEventListener("DOMContentLoaded",(e)=>{
   document.querySelector("#options-actions-close-link").addEventListener("click",(e)=>{
     window.location.href = "https://duck.com/"
   })
+  document.querySelector("#chat-send-btn").addEventListener("click", (e)=>{
+    Chat.ProcessUserInput()
+  })
+  document.querySelector("#chat-send-txt").addEventListener("keyup",(e)=>{
+    if (e.keyCode === 13){
+      Chat.ProcessUserInput()
+    }
+  })
 
-  //document.querySelector("")
-
+  Globals.MT_RAND.GenerateNewPRNG()
   Globals.ChangeViewTo("chat")
   Chat.AddBotMessageToChatWindow("Hello, I'm the IT Support Chat Bot! How can I be of assistance today?")
 })

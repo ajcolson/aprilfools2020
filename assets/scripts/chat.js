@@ -64,16 +64,34 @@ const Chat = {
     </div>`
     Chat.__helpers._addChatHTMLtoChatWindow(html_message)
   },
-  ProcessUserInput(userInput = ""){
+  ProcessUserInput(){
+    var userInput = document.querySelector("#chat-send-txt").value
+    document.querySelector("#chat-send-txt").value = ""
+    
     //Don't process blank inputs or input not of type string
     if (userInput === "" || typeof userInput != "string"){
       return
     }
 
-    Globals.MT_RAND.SetSeed(userInput)
-    Globals.MT_RAND.GenerateNewPRNG()
+    if (userInput[0] == "/"){
+      //Process this as a command string
+    } else {
+      Globals.MT_RAND.SetSeed(userInput)
+      Globals.MT_RAND.GenerateNewPRNG()
+      Chat.AddUserMessageToChatWindow(userInput)
+      
+      var botChatData = BotResponses.GetRandomResponseData()
+      Chat.AddBotMessageToChatWindow(botChatData.text)
 
-    Chat.AddUserMessageToChatWindow(userInput)
+      //roll for rex
+      Globals.MT_RAND.SetSeed(""+Globals.GetUnixTime())
+      Globals.MT_RAND.GenerateNewPRNG()
+      var chanceOfRexRoll = Globals.MT_RAND.NextFromRangeInclusive(0,1337)
+      if (chanceOfRexRoll == 1337){
+        var rexChatData = RexResponses.GetRandomResponseData()
+        Chat.AddRexMessageToChatWindow(rexChatData.text)
+      }
 
+    }
   }
 }
