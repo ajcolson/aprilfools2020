@@ -73,8 +73,9 @@ const Chat = {
       return
     }
 
-    if (userInput[0] == "/"){
+    if (userInput[0] == Commands.CommmandSigil){
       //Process this as a command string
+      Commands.RunCommandFromInput(userInput.substr(1))
     } else {
       Globals.MT_RAND.SetSeed(userInput)
       Globals.MT_RAND.GenerateNewPRNG()
