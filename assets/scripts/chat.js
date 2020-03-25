@@ -70,12 +70,12 @@ const Chat = {
     
     //Don't process blank inputs or input not of type string
     if (userInput === "" || typeof userInput != "string"){
-      return
+      return false
     }
 
     if (userInput[0] == Commands.CommmandSigil){
       //Process this as a command string
-      Commands.RunCommandFromInput(userInput.substr(1))
+      return Commands.RunCommandFromInput(userInput)
     } else {
       Globals.MT_RAND.SetSeed(userInput)
       Globals.MT_RAND.GenerateNewPRNG()
@@ -92,7 +92,7 @@ const Chat = {
         var rexChatData = RexResponses.GetRandomResponseData()
         Chat.AddRexMessageToChatWindow(rexChatData.text)
       }
-
+      return true
     }
   }
 }
