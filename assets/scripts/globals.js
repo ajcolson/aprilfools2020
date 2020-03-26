@@ -20,12 +20,12 @@ const Globals = {
     }
   },
   Variables : {
-    Username: "User"
+    Username: "Gordan Freeman"
   },
   MT_RAND : {
     __seed: "Default-Seed -- This value gets changed later. :)",
     __prng: null,
-    SetSeed(newSeedValue = "Default-Seed -- This value gets changed later. :)"){
+    SetSeed(newSeedValue = "LoremIpsum"){
       Globals.MT_RAND.__seed = newSeedValue
     },
     GenerateNewPRNG(){
@@ -100,5 +100,9 @@ const Globals = {
   },
   GetUnixTime(){
     return Math.floor(Date.now() / 1000)
+  },
+  ChangeUsername(username){
+    Globals.Variables.Username = username.substr(0,16)
+    document.querySelector("#username-txt").value = Globals.Variables.Username
   }
 }

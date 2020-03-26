@@ -30,7 +30,12 @@ document.addEventListener("DOMContentLoaded",(e)=>{
       Chat.ProcessUserInput()
     }
   })
+  document.querySelector("#username-txt").addEventListener('change',(e)=>{
+    e.preventDefault()
+    Globals.ChangeUsername(document.querySelector("#username-txt").value)
+  })
 
+  Globals.ChangeUsername("User")
   Globals.MT_RAND.GenerateNewPRNG()
   Globals.ChangeViewTo("chat")
   Chat.AddBotMessageToChatWindow("Hello, I'm the IT Support Chat Bot! How can I be of assistance today?")
