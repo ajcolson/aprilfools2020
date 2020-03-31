@@ -8,6 +8,13 @@ body{
   max-height: 750px;
   overflow: hidden;
 }
+#app-main{
+  display: none;
+}
+#app-loader{
+  width: 450px;
+  height: 750px;
+}
 .app-brand-text{
   font-size: 1.65rem;
   user-select: none;

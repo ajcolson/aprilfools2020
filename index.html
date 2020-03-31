@@ -28,78 +28,83 @@
   </head>
   <body>
     <div id="app-main-container" class="shadow my-4 mx-5 bg-light rounded">
-      <nav class="mt-1 pb-2 navbar navbar-dark bg-primary no-select">
-        <div class="mr-auto">
-          <span class="navbar-brand app-brand-text">
-            <span class="mdi mdi-24px mdi-black-mesa"></span>&nbsp;IT Support Chat Bot
-          </span>
-        </div>
-        <div id="options-dropdown-container" class="dropdown no-select">
-          <button type="button" id="app-options-btn" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="text-white mdi mdi-24px mdi-dots-vertical"></span>
-          </button>
-          <div id="options-dropdown" class="dropdown-menu no-select" aria-labelledby="app-options-btn">
-            <h6 class="dropdown-header no-select">Views</h6>
-            <a id="options-view-chat-link" class="dropdown-item" href="#"><span class="mdi mdi-chat-outline"></span>&nbsp;Chat</a>
-            <a id="options-view-settings-link" class="dropdown-item" href="#"><span class="mdi mdi-settings"></span>&nbsp;Settings</a>
-            <a id="options-view-about-link" class="dropdown-item" href="#"><span class="mdi mdi-information-outline"></span>&nbsp;About</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header no-select">Actions</h6>
-            <a id="options-actions-reset-link" class="dropdown-item" href="#"><span class="mdi mdi-reload"></span>&nbsp;Reset</a>
-            <a id="options-actions-close-link" class="dropdown-item" href="#"><span class="mdi mdi-close"></span>&nbsp;Close</a>
-          </div>
-        </div>
-      </nav>
-      <div id="chat-messages-container" class="p-3 bg-white">
-        <div class="alert alert-warning" role="alert">
-          <h4 class="alert-heading"><span class="mdi mdi-exclamation-thick"></span> Before you start...</h4>
-          <p>This chat program is in Early Preview, so some features are still missing. For the best results, the chat bot expects questions to end with a question mark (?) to be understood.</p> 
-        </div>
+      <div id="app-loader" class="no-select bg-primary text-white p-5">
+        Loading...
       </div>
-      <div id="chat-actions-bar-container" class="px-3 pt-2 mb-1 bg-light">
-        <div class="input-group mb-3">
-          <input type="text" id="chat-send-txt" class="form-control" placeholder="Enter your text here..." aria-label="Enter your text here..." aria-describedby="chat-send-btn">
-          <div class="input-group-append">
-            <button id="chat-send-btn" class="btn btn-primary" type="button">Send</button>
+      <div id="app-main">
+        <nav class="mt-1 pb-2 navbar navbar-dark bg-primary no-select">
+          <div class="mr-auto">
+            <span class="navbar-brand app-brand-text">
+              <span class="mdi mdi-24px mdi-black-mesa"></span>&nbsp;IT Support Chat Bot
+            </span>
+          </div>
+          <div id="options-dropdown-container" class="dropdown no-select">
+            <button type="button" id="app-options-btn" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="text-white mdi mdi-24px mdi-dots-vertical"></span>
+            </button>
+            <div id="options-dropdown" class="dropdown-menu no-select" aria-labelledby="app-options-btn">
+              <h6 class="dropdown-header no-select">Views</h6>
+              <a id="options-view-chat-link" class="dropdown-item" href="#"><span class="mdi mdi-chat-outline"></span>&nbsp;Chat</a>
+              <a id="options-view-settings-link" class="dropdown-item" href="#"><span class="mdi mdi-settings"></span>&nbsp;Settings</a>
+              <a id="options-view-about-link" class="dropdown-item" href="#"><span class="mdi mdi-information-outline"></span>&nbsp;About</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header no-select">Actions</h6>
+              <a id="options-actions-reset-link" class="dropdown-item" href="#"><span class="mdi mdi-reload"></span>&nbsp;Reset</a>
+              <a id="options-actions-close-link" class="dropdown-item" href="#"><span class="mdi mdi-close"></span>&nbsp;Close</a>
+            </div>
+          </div>
+        </nav>
+        <div id="chat-messages-container" class="p-3 bg-white">
+          <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><span class="mdi mdi-exclamation-thick"></span> Before you start...</h4>
+            <p>This chat program is in Early Preview, so some features are still missing. For the best results, the chat bot expects questions to end with a question mark (?) to be understood.</p> 
           </div>
         </div>
-      </div>
-      <div id="about-app-container" class="p-3 bg-white">
-        <div class="jumbotron mb-2">
-          <div class="container">
-            <h1 class="display-4">About</h1>
+        <div id="chat-actions-bar-container" class="px-3 pt-2 mb-1 bg-light">
+          <div class="input-group mb-3">
+            <input type="text" id="chat-send-txt" class="form-control" placeholder="Enter your text here..." aria-label="Enter your text here..." aria-describedby="chat-send-btn">
+            <div class="input-group-append">
+              <button id="chat-send-btn" class="btn btn-primary" type="button">Send</button>
+            </div>
           </div>
         </div>
-        <blockquote class="blockquote">
-          <p>You got me! This is in fact not a real app, but instead an April Fools joke! You probably should not be used as an actual source of troublshooting or technical advice. Still cool though, right? I hope you like it and have a great day!</p>
-          <footer class="blockquote-footer">Alex </footer>
-        </blockquote>
-        <div class="card m-1">
-          <div class="card-body">
-            <h5 class="card-title">Want to see the source code?</h5>
-            <p class="card-text">The project and all its source code are avaiable completely for free to view, review and even reuse! The license is included below. Enjoy!</p>
-            <a href="https://github.com/ajcolson/aprilfools2020" class="btn btn-primary">View on Github</a>
+        <div id="about-app-container" class="p-3 bg-white">
+          <div class="jumbotron mb-2">
+            <div class="container">
+              <h1 class="display-4">About</h1>
+            </div>
           </div>
-        </div>
-        <hr>
-        <h2>License</h2>
-          <blockquote class="blockquote p-3">
-            <p>Copyright 2020 Alex Colson</p>
-            <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-            <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+          <blockquote class="blockquote">
+            <p>You got me! This is in fact not a real app, but instead an April Fools joke! You probably should not be used as an actual source of troublshooting or technical advice. Still cool though, right? I hope you like it and have a great day!</p>
+            <footer class="blockquote-footer">Alex </footer>
           </blockquote>
-      </div>
-      <div id="app-settings-container" class="p-3 bg-white">
-        <h1>Settings</h1>
-        <div class="alert alert-primary" role="alert">
-          All changes are saved automatically.
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="username-txt-label">Username</span>
+          <div class="card m-1">
+            <div class="card-body">
+              <h5 class="card-title">Want to see the source code?</h5>
+              <p class="card-text">The project and all its source code are avaiable completely for free to view, review and even reuse! The license is included below. Enjoy!</p>
+              <a href="https://github.com/ajcolson/aprilfools2020" class="btn btn-primary">View on Github</a>
+            </div>
           </div>
-          <input type="text" id="username-txt" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username-txt-label">
+          <hr>
+          <h2>License</h2>
+            <blockquote class="blockquote p-3">
+              <p>Copyright 2020 Alex Colson</p>
+              <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+              <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+              <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </blockquote>
+        </div>
+        <div id="app-settings-container" class="p-3 bg-white">
+          <h1>Settings</h1>
+          <div class="alert alert-primary" role="alert">
+            All changes are saved automatically.
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="username-txt-label">Username</span>
+            </div>
+            <input type="text" id="username-txt" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username-txt-label">
+          </div>
         </div>
       </div>
     </div>
