@@ -14,7 +14,13 @@ const RexResponses = {
     },
   ],
   GetRandomResponseData(){
-    let thresholdRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2) + Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
+    var topHalfRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
+
+    Globals.MT_RAND.SetSeed(""+Globals.GetUnixTime())
+    Globals.MT_RAND.GenerateNewPRNG()
+
+    var bottomHalfRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
+    var thresholdRoll =  topHalfRoll + bottomHalfRoll
     var rounds = 0
     while ( rounds <= 99 ) {
       rounds++

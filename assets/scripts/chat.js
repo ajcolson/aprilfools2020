@@ -73,22 +73,53 @@ const Chat = {
       return false
     }
 
+    //check if the user is running a command
     if (userInput[0] == ChatCommands.CommandSigil){
       //Process this as a command string
       return ChatCommands.RunCommandFromInput(userInput)
+    }
+    
+    //Since its not a commmand, go ahead and write the users input to the screen
+    Chat.AddUserMessageToChatWindow(userInput)
+    
+    //check for certain key words/phrases that trigger a canned response
+    switch(userInput.toLowerCase()){
+      case "no": case "n": case "nope": case "nop": case "no.": case "n.": case "nope.": case "nop":
+        Chat.AddBotMessageToChatWindow("Try asking the question again or changing the phrasing, I might have a better chance of answering it.")
+        return true
+      break;
+      case "yes": case "y": case "ye": case "yes.": case "y.": case "ye.":
+        Chat.AddBotMessageToChatWindow("Glad that helped! If you have any other questions, please feel free to ask.")
+        return true
+      break;
+      case "what is your name?": case "what's your name?": case "what are you called?":
+        Chat.AddBotMessageToChatWindow(`I'm called the IT Support Chat Bot, nice to meet you ${Globals.Variables.Username}!`)
+        return true
+      break;
+      case "what thing?": case "what is the thing?":
+        Chat.AddBotMessageToChatWindow("You know, the thing.")
+        return true
+      break;
+    }
+
+    //Since this is not an input with a canned response, add it to the chat history:
+    Globals.AddInputToHistory(userInput)
+
+    //See if the input is phrased as a question
+    if (userInput[userInput.length-1] != "?") {
+      Chat.AddBotMessageToChatWindow(`I'm sorry, I'm not sure I understand what you mean. Can you phrase that in the form of a question?`)
     } else {
       Globals.MT_RAND.SetSeed(userInput)
-      Globals.MT_RAND.GenerateNewPRNG()
-      Chat.AddUserMessageToChatWindow(userInput)
+      Globals.MT_RAND.GenerateNewPRNG()      
       
-      var botChatData = BotResponses.GetRandomResponseData()
+      var botChatData = BotResponses.GetRandomResponseData(userInput)
       Chat.AddBotMessageToChatWindow(botChatData.text)
 
       //roll for rex
       Globals.MT_RAND.SetSeed(""+Globals.GetUnixTime())
       Globals.MT_RAND.GenerateNewPRNG()
       var chanceOfRexRoll = Globals.MT_RAND.NextFromRangeInclusive(0,1337)
-      if (chanceOfRexRoll == 1337){
+      if (chanceOfRexRoll == 1337 || chanceOfRexRoll == 42){
         var rexChatData = RexResponses.GetRandomResponseData()
         Chat.AddRexMessageToChatWindow(rexChatData.text)
       }

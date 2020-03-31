@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
   })
 
   document.querySelector("#options-actions-reset-link").addEventListener("click",(e)=>{
-    window.location.href = "."
+    Globals.ResetApp()
   })
   
   document.querySelector("#options-actions-close-link").addEventListener("click",(e)=>{
@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded",(e)=>{
       Chat.ProcessUserInput()
     }
   })
-  document.querySelector("#username-txt").addEventListener('change',(e)=>{
+  document.querySelector("#username-txt").addEventListener("change",(e)=>{
     e.preventDefault()
     Globals.ChangeUsername(document.querySelector("#username-txt").value)
   })
 
   Globals.ChangeUsername("User")
   Globals.MT_RAND.GenerateNewPRNG()
-  Globals.ChangeViewTo("chat")
+  Globals.ChangeViewTo("about")
   Chat.AddBotMessageToChatWindow("Hello, I'm the IT Support Chat Bot! How can I be of assistance today?")
 })

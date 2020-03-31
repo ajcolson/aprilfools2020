@@ -17,10 +17,25 @@ const Globals = {
         selectors: ["#app-settings-container"],
         isActive: false
       }
-    }
+    },
+    LINKS: [
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+     "https://www.youtube.com/watch?v=oHg5SJYRHA0", //maybe if I repeat this enough, it will be the link the user gets? :P
+     "https://www.xkcd.com/627/",
+     "https://lmgtfy.com/?q=minify+js&pp=1&s=d&iie=1"
+    ]
   },
   Variables : {
-    Username: "Gordan Freeman"
+    Username: "Gordan Freeman",
+    PastInputs: {} //Use the user input as a key and keep a count of number of times.
+
   },
   MT_RAND : {
     __seed: "Default-Seed -- This value gets changed later. :)",
@@ -104,5 +119,19 @@ const Globals = {
   ChangeUsername(username){
     Globals.Variables.Username = username.substr(0,16)
     document.querySelector("#username-txt").value = Globals.Variables.Username
+  },
+  ResetApp(){
+    window.location.href = "."
+  },
+  AddInputToHistory(userInput){
+    if( userInput in Globals.Variables.PastInputs ){
+      Globals.Variables.PastInputs[userInput]++
+    } else Globals.Variables.PastInputs[userInput] = 1
+  },
+  OpenRandomLink(){
+    Globals.MT_RAND.SetSeed(Globals.GetUnixTime()+"")
+    Globals.MT_RAND.GenerateNewPRNG()
+    var linkPathID = Globals.MT_RAND.NextFromRange(0,Globals.Constants.LINKS.length)
+    window.location.href = Globals.Constants.LINKS[linkPathID]
   }
 }

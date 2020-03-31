@@ -20,6 +20,9 @@ const ChatCommands = {
           Globals.ChangeUsername(theVarValue)
         break
       }
+    },
+    "reset": ()=>{
+      Globals.ResetApp()
     }
   },
   RunCommandFromInput(userInput){
