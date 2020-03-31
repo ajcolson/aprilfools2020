@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded",(e)=>{
+  setTimeout(()=>{
+    Globals.HideLoaderPane()
+  },3500)
+
   document.querySelector("#options-dropdown a").addEventListener("click",(e)=>{
     e.preventDefault()
   })
@@ -39,4 +43,5 @@ document.addEventListener("DOMContentLoaded",(e)=>{
   Globals.MT_RAND.GenerateNewPRNG()
   Globals.ChangeViewTo("chat")
   Chat.AddBotMessageToChatWindow("Hello, I'm the IT Support Chat Bot! How can I be of assistance today?")
+
 })

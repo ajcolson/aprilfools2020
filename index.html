@@ -28,8 +28,13 @@
   </head>
   <body>
     <div id="app-main-container" class="shadow my-4 mx-5 bg-light rounded">
-      <div id="app-loader" class="no-select bg-primary text-white p-5">
-        Loading...
+      <div id="app-loader" class="no-select bg-primary text-white d-flex flex-column align-items-center justify-content-center">
+        <h2 class="d-block"><span class="mdi mdi-black-mesa"></span>&nbsp;IT Support Chat Bot</h2>
+        <div class="d-block mt-2">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
       </div>
       <div id="app-main">
         <nav class="mt-1 pb-2 navbar navbar-dark bg-primary no-select">

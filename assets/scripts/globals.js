@@ -133,5 +133,10 @@ const Globals = {
     Globals.MT_RAND.GenerateNewPRNG()
     var linkPathID = Globals.MT_RAND.NextFromRange(0,Globals.Constants.LINKS.length)
     window.location.href = Globals.Constants.LINKS[linkPathID]
+  },
+  HideLoaderPane(){
+    document.querySelector("#app-loader").style.display = "none"
+    document.querySelector("#app-main").style.display = "block"
+    document.querySelector("#app-loader").remove()
   }
 }
