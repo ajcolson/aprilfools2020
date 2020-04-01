@@ -85,19 +85,55 @@ const Chat = {
     //check for certain key words/phrases that trigger a canned response
     switch(userInput.toLowerCase()){
       case "no": case "n": case "nope": case "nop": case "no.": case "n.": case "nope.": case "nop":
-        Chat.AddBotMessageToChatWindow("Try asking the question again or changing the phrasing, I might have a better chance of answering it.")
+        Chat.AddBotMessageToChatWindow("Try asking the question again or changing the phrasing, I might have a better chance of answering it. Rex will show you how. Rex?")
+        Chat.AddRexMessageToChatWindow("RAWR?")
+        Chat.AddBotMessageToChatWindow("Thank you Rex.")
         return true
       break;
       case "yes": case "y": case "ye": case "yes.": case "y.": case "ye.":
         Chat.AddBotMessageToChatWindow("Glad that helped! If you have any other questions, please feel free to ask.")
+        Chat.AddRexMessageToChatWindow("RAWR!!")
         return true
       break;
-      case "what is your name?": case "what's your name?": case "what are you called?":
-        Chat.AddBotMessageToChatWindow(`I'm called the IT Support Chat Bot, nice to meet you ${Globals.Variables.Username}!`)
+      case "what is your name?": case "what's your name?": case "what are you called?": case "who are you?":
+        Chat.AddBotMessageToChatWindow(`I am called the IT Support Chat Bot, nice to meet you ${Globals.Variables.Username}! I also have a friend named Rex. Rex say hello.`)
+        Chat.AddRexMessageToChatWindow("RAWR.")
         return true
       break;
       case "what thing?": case "what is the thing?":
-        Chat.AddBotMessageToChatWindow("You know, the thing.")
+        Chat.AddBotMessageToChatWindow("You know, the thing. I think Rex knows what it is, right?")
+        Chat.AddRexMessageToChatWindow("RAWR!")
+        Chat.AddBotMessageToChatWindow("That's right Rex, thanks for clearing that up.")
+        return true
+      break;
+      case "who is rex?":
+        Chat.AddBotMessageToChatWindow("Rex is my friend. Rex say hi.")
+        Chat.AddRexMessageToChatWindow("RAWR!")
+        return true
+      break;
+      case "rex?":
+        Chat.AddRexMessageToChatWindow("RAWR?")
+        return true
+      break;
+      case "what time is it?": case "what is the time?":
+        Chat.AddBotMessageToChatWindow(`The time appears to be ${Globals.GetUnixTime()} seconds since the beginning of time. Rex can convert that to you local time. Rex?`)
+        Chat.AddRexMessageToChatWindow("RAWR.")
+        return true
+      break;
+      case "hello": case "hi":
+        Chat.AddBotMessageToChatWindow("Hello! What can I help with today?")
+        Chat.AddRexMessageToChatWindow("RAWR!")
+        return true
+      break;
+      case "tell me a joke": case "can you tell me a joke?":
+        Chat.AddRexMessageToChatWindow("RAWR?")
+        Chat.AddBotMessageToChatWindow("I am not sure, what do you call it Rex?")
+        Chat.AddRexMessageToChatWindow("RAWR!")
+        return true
+      break;
+      case "help":
+        Chat.AddBotMessageToChatWindow("How can I help?")
+        Chat.AddRexMessageToChatWindow("RAWR?")
         return true
       break;
     }
@@ -107,7 +143,7 @@ const Chat = {
 
     //See if the input is phrased as a question
     if (userInput[userInput.length-1] != "?") {
-      Chat.AddBotMessageToChatWindow(`I'm sorry, I'm not sure I understand what you mean. Can you phrase that in the form of a question?`)
+      Chat.AddBotMessageToChatWindow(`I am sorry, I am not sure I understand what you mean. Can you phrase that in the form of a question?`)
     } else {
       Globals.MT_RAND.SetSeed(userInput)
       Globals.MT_RAND.GenerateNewPRNG()      
@@ -119,7 +155,7 @@ const Chat = {
       Globals.MT_RAND.SetSeed(""+Globals.GetUnixTime())
       Globals.MT_RAND.GenerateNewPRNG()
       var chanceOfRexRoll = Globals.MT_RAND.NextFromRangeInclusive(0,1337)
-      if (chanceOfRexRoll == 1337 || chanceOfRexRoll == 42){
+      if (chanceOfRexRoll == 1337 || chanceOfRexRoll <= 42){
         var rexChatData = RexResponses.GetRandomResponseData()
         Chat.AddRexMessageToChatWindow(rexChatData.text)
       }

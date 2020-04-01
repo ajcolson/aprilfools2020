@@ -42,6 +42,6 @@ document.addEventListener("DOMContentLoaded",(e)=>{
   Globals.ChangeUsername("User")
   Globals.MT_RAND.GenerateNewPRNG()
   Globals.ChangeViewTo("chat")
-  Chat.AddBotMessageToChatWindow("Hello, I'm the IT Support Chat Bot! How can I be of assistance today?")
+  Chat.AddBotMessageToChatWindow("Hello, I am the IT Support Chat Bot! How can I be of assistance today?")
 
 })

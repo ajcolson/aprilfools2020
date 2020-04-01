@@ -2,8 +2,17 @@ const ChatCommands = {
   CommandSigil: "/",
   CommandDelimiter:  " ",
   __commands:{
-    "rexsay": (argsArray,argsString)=>{      
-      Chat.AddRexMessageToChatWindow(argsString.substr(argsArray[0].length))
+    "help": ()=>{
+      var printOut = `I recognize the following commands:<ul class="list-group">`
+      var keys = Object.keys(ChatCommands.__commands)
+      for (var key of keys)
+        printOut += `<li class="list-group-item list-group-item-secondary">${key}</li>`
+      printOut += `</ul>`
+      Chat.AddBotMessageToChatWindow(printOut)
+      return true
+    },
+    "rexsay": ()=>{      
+      Chat.AddRexMessageToChatWindow("RAWR!")
     },
     "botsay": (argsArray,argsString)=>{
       Chat.AddBotMessageToChatWindow(argsString.substr(argsArray[0].length))
@@ -23,6 +32,10 @@ const ChatCommands = {
     },
     "reset": ()=>{
       Globals.ResetApp()
+    },
+    "ping": ()=>{
+      Chat.AddBotMessageToChatWindow("Pong.")
+      Chat.AddRexMessageToChatWindow("Rawr.")
     }
   },
   RunCommandFromInput(userInput){

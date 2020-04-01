@@ -6,12 +6,16 @@ const RexResponses = {
     },
     {
       text: "RAWR?",
-      threshold: 750
+      threshold: 50
     },
     {
       text: "RAWR?!",
       threshold: Globals.Constants.MAX_RAND_ROLL_VAL
     },
+    {
+      text: "RAWR.",
+      threshold: 250
+    }
   ],
   GetRandomResponseData(){
     var topHalfRoll = Globals.MT_RAND.NextFromRangeInclusive(Globals.Constants.MIN_RAND_ROLL_VAL,Globals.Constants.MAX_RAND_ROLL_VAL/2)
@@ -33,6 +37,6 @@ const RexResponses = {
         }
       }
     }
-    return {"text":"RAWR!","rounds":100} 
+    return {"text":"What's my line? Oh right... RAWR!","rounds":100} 
   }
 }

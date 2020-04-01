@@ -85,6 +85,6 @@ const BotResponses = {
         }
       }
     }
-    return {"text":"Hi there, Alex here. Somehow the code that picks a random phrase was unable to find a phrase despite many attempts to do so. You shouldn't normally see this message, so congrats on getting this far! It is very unlikely you'll ever see this message again.","rounds":100} 
+    return {"text":`Hi there, Alex here. Somehow the code that picks a random response phrase was unable to find a phrase to respond with despite many attempts to do so. You shouldn't normally see this message, so congrats on getting this far! It is very unlikely you'll ever see this message again. If you message me the phrase "I like pie!" privately, I'll give you a prize. Now do go do thing thing or something. Hope that answered your question.`,"rounds":100} 
   }
 }
